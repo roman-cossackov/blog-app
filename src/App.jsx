@@ -1,12 +1,14 @@
-import './App.css'
-import PostsList from './components/PostsList/PostsList'
+import "./App.css";
+import PostsList from "./components/PostsList/PostsList";
+import AddPostForm from "./components/AddPostForm/AddPostForm";
 
 function App() {
-return (
-    <>
-      <PostsList />
-    </>
-  )
+    return (
+        <>
+            <AddPostForm />
+            <PostsList />
+        </>
+    );
 }
 
-export default App
+export default App;
