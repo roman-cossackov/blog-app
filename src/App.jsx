@@ -1,6 +1,6 @@
 import "./App.css";
-import PostsList from "./components/PostsList/PostsList";
-import AddPostForm from "./components/AddPostForm/AddPostForm";
+import PostsList from "./components/PostsList";
+import AddPostForm from "./components/AddPostForm";
 
 function App() {
     return (
