@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { addNewPost } from "./postsSlice";
 import { selectAllUsers } from "../users/usersSlice";
 import { useNavigate } from "react-router-dom";
+import styles from './AddPostForm.module.css'
 
 const AddPostForm = () => {
     const dispatch = useDispatch();
@@ -47,8 +48,8 @@ const AddPostForm = () => {
     ));
 
     return (
-        <section>
-            <h2>Add a New Post</h2>
+        <section className={styles.addPostForm}>
+            <h2 className={styles.addPostForm_header}>Add a New Post</h2>
             <form>
                 <label htmlFor="postTitle">Post Title:</label>
                 <input

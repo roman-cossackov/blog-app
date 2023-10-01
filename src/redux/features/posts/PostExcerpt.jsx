@@ -3,22 +3,26 @@ import { Link } from "react-router-dom";
 import PostAuthor from "./PostAuthor";
 import TimeAgo from "./TimeAgo";
 import ReactionButtons from "./ReactionButtons";
-import styles from './PostExcerpt.module.css'
+import styles from "./PostExcerpt.module.css";
 
+import { useSelector } from "react-redux";
+import { selectPostById } from "./postsSlice";
 
-const PostExcerpt = (props) => {
+const PostsExcerpt = (props) => {
+    const post = useSelector((state) => selectPostById(state, props.postId));
+
     return (
         <article className={styles.post}>
-            <h2>{props.post.title}</h2>
-            <p>{props.post.body.substring(0, 75)}...</p>
+            <h2>{post.title}</h2>
+            <p>{post.body.substring(0, 75)}...</p>
             <p>
-                <Link to={`posts/${props.post.id}`}>View Post</Link>
-                <PostAuthor userId={props.post.userId} />
-                <TimeAgo timestamp={props.post.date} />
+                <Link to={`posts/${post.id}`}>View Post</Link>
+                <PostAuthor userId={post.userId} />
+                <TimeAgo timestamp={post.date} />
             </p>
-            <ReactionButtons post={props.post} />
+            <ReactionButtons post={post} />
         </article>
     );
 };
 
-export default PostExcerpt;
+export default PostsExcerpt;
