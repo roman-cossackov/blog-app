@@ -5,6 +5,7 @@ import { useParams, Link } from "react-router-dom";
 import PostAuthor from "./PostAuthor";
 import TimeAgo from "./TimeAgo";
 import ReactionButtons from "./ReactionButtons";
+import CommentsList from "../comments/CommentsList";
 
 const SinglePostPage = () => {
     const { postId } = useParams();
@@ -30,6 +31,7 @@ const SinglePostPage = () => {
             </p>
             <ReactionButtons post={post} />
             <button>show comments...</button>
+            <CommentsList postId={post.id}/>
         </article>
     );
 };

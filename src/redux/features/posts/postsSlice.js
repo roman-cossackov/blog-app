@@ -58,7 +58,6 @@ export const deletePost = createAsyncThunk(
         const { id } = initialPost;
         try {
             const response = await axios.delete(`${POSTS_URL}/${id}`);
-            console.log(initialPost);
             if (response?.status === 200) return initialPost;
             return `${response?.status}: ${response?.statusText}`;
         } catch (err) {
@@ -73,7 +72,7 @@ const postsSlice = createSlice({
     reducers: {
         reactionAdded(state, action) {
             const { postId, reaction } = action.payload;
-            const existingPost = state.posts.find[postId];
+            const existingPost = state.entities[postId]
             if (existingPost) {
                 existingPost.reactions[reaction]++;
             }

@@ -6,7 +6,7 @@ import { selectPostIds, getPostsStatus, getPostsError } from "./postsSlice";
 import PostsExcerpt from "./PostExcerpt";
 
 const PostsList = () => {
-    const orderedPostIds = useSelector(selectPostIds);
+    const orderedPostsIds = useSelector(selectPostIds);
     const postsStatus = useSelector(getPostsStatus);
     const postsError = useSelector(getPostsError);
 
@@ -14,7 +14,7 @@ const PostsList = () => {
     if (postsStatus === "loading") {
         content = <p>Loading...</p>;
     } else if (postsStatus === "succeeded") {
-        content = orderedPostIds.map((postId) => (
+        content = orderedPostsIds.map((postId) => (
             <PostsExcerpt key={postId} postId={postId} />
         ));
     } else if (postsStatus === "failed") {
