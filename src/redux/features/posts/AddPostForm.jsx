@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { addNewPost } from "./postsSlice";
 import { selectAllUsers } from "../users/usersSlice";
 import { useNavigate } from "react-router-dom";
-import styles from './AddPostForm.module.css'
+import styles from '../../../css/AddPostForm.module.css'
 
 const AddPostForm = () => {
     const dispatch = useDispatch();

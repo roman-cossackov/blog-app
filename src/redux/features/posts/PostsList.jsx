@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 
-import styles from "./PostsList.module.css";
+import styles from '../../../css/PostsList.module.css'
 
 import { selectPostIds, getPostsStatus, getPostsError } from "./postsSlice";
 import PostsExcerpt from "./PostExcerpt";
