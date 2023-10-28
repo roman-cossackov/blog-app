@@ -1,4 +1,65 @@
-.addPostForm {
-    width: 600px;
-    margin: 0px auto;
+.wrapper {
+    max-width: 500px;
+    margin: 0 auto;
+    margin-top: 100px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.header {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+.form {
+    display: flex;
+    flex-direction: column;
+}
+
+.label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.input,
+.select,
+.textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    font-size: 16px;
+}
+
+.button {
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.button:hover {
+    background-color: #0056b3;
+}
+
+.select {
+    appearance: none;
+    background-image: url('dropdown-arrow.png');
+    background-position: 95% 50%;
+    background-repeat: no-repeat;
+}
+
+@media (max-width: 768px) {
+    .wrapper {
+        max-width: 100%;
+    }
 }

@@ -5,3 +5,11 @@
     margin: 20px auto;
     padding: 0 10px 20px 10px;
 }
+.link {
+    color: #007bff;
+    text-decoration: none;
+}
+.link:hover {
+    text-decoration: underline;
+}
+

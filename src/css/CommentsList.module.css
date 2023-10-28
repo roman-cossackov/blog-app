@@ -1,0 +1,23 @@
+.comments {
+    list-style: none;
+}
+.comment {
+    margin-bottom: 30px;
+}
+
+.edit {
+    color: #007bff;
+    text-decoration: none;
+    text-align: right;
+}
+.edit:hover {
+    text-decoration: underline;
+}
+
+.author {
+    font-weight: 700;
+}
+hr {
+
+    border-top: 1px solid #ddd;
+}

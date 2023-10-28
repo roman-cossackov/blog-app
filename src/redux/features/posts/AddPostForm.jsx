@@ -48,38 +48,42 @@ const AddPostForm = () => {
     ));
 
     return (
-        <section className={styles.addPostForm}>
-            <h2 className={styles.addPostForm_header}>Add a New Post</h2>
-            <form>
-                <label htmlFor="postTitle">Post Title:</label>
+        <section className={styles.wrapper}>
+            <h2 className={styles.header}>Add a New Post</h2>
+            <form className={styles.form}>
+                <label htmlFor="postTitle" className={styles.label}>Post Title:</label>
                 <input
                     type="text"
                     id="postTitle"
                     name="postTitle"
                     value={title}
                     onChange={onTitleChanged}
+                    className={styles.input}
                 />
-                <label htmlFor="postAuthor">Author:</label>
+                <label htmlFor="postAuthor" className={styles.label}>Author:</label>
                 <select
                     name="postAuthor"
                     value={userId}
                     onChange={onAuthorChanged}
+                    className={styles.select}
                 >
                     <option value=""></option>
                     {usersOptions}
                 </select>
-                <label htmlFor="postContent">Post Content:</label>
+                <label htmlFor="postContent" className={styles.label}>Post Content:</label>
                 <textarea
                     id="postContent"
                     name="postContent"
                     value={content}
                     onChange={onContentChanged}
+                    className={styles.textarea}
                 />
 
                 <button
                     type="button"
                     onClick={onSavePostHandler}
                     disabled={!canSave}
+                    className={styles.button}
                 >
                     Save Post
                 </button>

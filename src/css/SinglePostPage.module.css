@@ -1,0 +1,38 @@
+.post {
+    padding: 20px;
+}
+.wrapper {
+    border: 1px solid #ddd;
+    padding: 0px 10px 20px 10px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.header {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+.content {
+    font-size: 16px;
+    line-height: 1.4;
+    margin-bottom: 20px;
+}
+.edit_wrapper {
+    text-align: right;
+}
+.edit {
+    color: #007bff;
+    text-decoration: none;
+    text-align: right;
+}
+.edit:hover {
+    text-decoration: underline;
+}
+.author {
+    font-weight: bold;
+    margin-right: 10px;
+}
+.time {
+    color: #777;
+}

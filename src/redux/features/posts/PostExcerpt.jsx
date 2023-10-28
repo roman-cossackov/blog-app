@@ -14,9 +14,8 @@ const PostsExcerpt = (props) => {
     return (
         <article className={styles.post}>
             <h2>{post.title}</h2>
-            <p>{post.body.substring(0, 75)}...</p>
+            <p>{post.body.substring(0, 75)}...<Link className={styles.link} to={`posts/${post.id}`}>view post</Link></p>
             <p>
-                <Link to={`posts/${post.id}`}>View Post</Link>
                 <PostAuthor userId={post.userId} />
                 <TimeAgo timestamp={post.date} />
             </p>

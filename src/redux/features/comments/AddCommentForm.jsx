@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
+
 import { addComment } from "./commentsSlice";
+import styles from "../../../css/AddCommentForm.module.css";
 
 const AddCommentForm = (props) => {
     const dispatch = useDispatch();
@@ -19,7 +21,9 @@ const AddCommentForm = (props) => {
         if (canSave) {
             try {
                 setAddRequestStatus("pending");
-                dispatch(addComment({ name, body: content, postId: props.postId })).unwrap();
+                dispatch(
+                    addComment({ name, body: content, postId: props.postId })
+                ).unwrap();
 
                 setName("");
                 setContent("");
@@ -32,26 +36,34 @@ const AddCommentForm = (props) => {
     };
 
     return (
-        <form>
-            <label htmlFor="name">Name:</label>
-            <input
-                type="text"
-                id="name"
-                name="name"
-                value={name}
-                onChange={onNameChanged}
-            />
-            <label htmlFor="comment">Content:</label>
-            <textarea
-                id="comment"
-                name="comment"
-                value={content}
-                onChange={onContentChanged}
-            />
-            <button type="button" onClick={onSaveCommentHandler} disabled={!canSave}>
-                Save Comment
-            </button>
-        </form>
+        <section>
+            <form>
+                <textarea
+                    className={styles.content}
+                    placeholder="Write a comment.."
+                    id="comment"
+                    name="comment"
+                    value={content}
+                    onChange={onContentChanged}
+                />
+                <input
+                    className={styles.name}
+                    placeholder="Your name"
+                    type="text"
+                    id="name"
+                    name="name"
+                    value={name}
+                    onChange={onNameChanged}
+                />
+                <button
+                    type="button"
+                    onClick={onSaveCommentHandler}
+                    disabled={!canSave}
+                >
+                    Save Comment
+                </button>
+            </form>
+        </section>
     );
 };
 

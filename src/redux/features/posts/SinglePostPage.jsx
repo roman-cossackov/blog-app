@@ -6,6 +6,7 @@ import PostAuthor from "./PostAuthor";
 import TimeAgo from "./TimeAgo";
 import ReactionButtons from "./ReactionButtons";
 import CommentsList from "../comments/CommentsList";
+import styles from "../../../css/SinglePostPage.module.css";
 
 const SinglePostPage = () => {
     const { postId } = useParams();
@@ -21,17 +22,25 @@ const SinglePostPage = () => {
     }
 
     return (
-        <article>
-            <h3>{post.title}</h3>
-            <p>{post.body}</p>
-            <p>
-                <Link to={`/posts/edit/${post.id}`}>Edit Post</Link>
-                <PostAuthor userId={post.userId} />
-                <TimeAgo timestamp={post.date} />
-            </p>
-            <ReactionButtons post={post} />
-            <button>show comments...</button>
-            <CommentsList postId={post.id}/>
+        <article className={styles.post}>
+            <div className={styles.wrapper}>
+                <h3 className={styles.header}>{post.title}</h3>
+                <p className={styles.content}>{post.body}</p>
+                <p>
+                    <PostAuthor
+                        className={styles.author}
+                        userId={post.userId}
+                    />
+                    <TimeAgo className={styles.time} timestamp={post.date} />
+                </p>
+                <ReactionButtons post={post} />
+                <div className={styles.edit_wrapper}>
+                    <Link className={styles.edit} to={`/posts/edit/${post.id}`}>
+                        Edit Post
+                    </Link>
+                </div>
+            </div>
+            <CommentsList postId={post.id} />
         </article>
     );
 };
