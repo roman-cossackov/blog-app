@@ -4,7 +4,6 @@
 .comment {
     margin-bottom: 30px;
 }
-
 .edit {
     color: #007bff;
     text-decoration: none;
@@ -13,11 +12,18 @@
 .edit:hover {
     text-decoration: underline;
 }
-
 .author {
     font-weight: 700;
+    word-wrap: break-word;
+}
+.body {
+    word-wrap: break-word;
 }
 hr {
 
     border-top: 1px solid #ddd;
+}
+.time {
+    color: grey;
+    margin: -10px 0 10px -10px;
 }

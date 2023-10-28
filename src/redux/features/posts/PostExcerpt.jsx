@@ -13,7 +13,7 @@ const PostsExcerpt = (props) => {
 
     return (
         <article className={styles.post}>
-            <h2>{post.title}</h2>
+            <h2 className={styles.title}>{post.title}</h2>
             <p>{post.body.substring(0, 75)}...<Link className={styles.link} to={`posts/${post.id}`}>view post</Link></p>
             <p>
                 <PostAuthor userId={post.userId} />

@@ -1,0 +1,26 @@
+.wrapper {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.header {
+    font-size: 24px;
+    margin-bottom: 16px;
+}
+.list {
+    list-style: none;
+    padding: 0;
+}
+.item {
+    margin: 8px 0;
+}
+.item .link {
+    text-decoration: none;
+    color: #007BFF;
+    font-weight: bold;
+}
+.item .link:hover {
+    text-decoration: underline;
+    color: #0056b3;
+}

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { useDispatch } from "react-redux";
 
 import { addComment } from "./commentsSlice";
@@ -11,8 +11,16 @@ const AddCommentForm = (props) => {
     const [content, setContent] = useState("");
     const [addRequestStatus, setAddRequestStatus] = useState("idle");
 
+    const contentRef = useRef(null);
+
     const onNameChanged = (e) => setName(e.target.value);
-    const onContentChanged = (e) => setContent(e.target.value);
+    const onContentChanged = (e) => {
+        setContent(e.target.value);
+        if (contentRef.current) {
+            contentRef.current.style.height = "50px";
+            contentRef.current.style.height = `${e.target.scrollHeight - 16}px`;
+        }
+    };
 
     const canSave =
         [name, content].every(Boolean) && addRequestStatus === "idle";
@@ -37,8 +45,9 @@ const AddCommentForm = (props) => {
 
     return (
         <section>
-            <form>
+            <form className={styles.form}>
                 <textarea
+                    ref={contentRef}
                     className={styles.content}
                     placeholder="Write a comment.."
                     id="comment"
@@ -56,6 +65,7 @@ const AddCommentForm = (props) => {
                     onChange={onNameChanged}
                 />
                 <button
+                    className={styles.button}
                     type="button"
                     onClick={onSaveCommentHandler}
                     disabled={!canSave}

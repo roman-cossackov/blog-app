@@ -1,8 +1,10 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { selectPostById, updatePost, deletePost } from "./postsSlice";
 import { useParams, useNavigate } from "react-router-dom";
+
 import { selectAllUsers } from "../users/usersSlice";
+import { selectPostById, updatePost, deletePost } from "./postsSlice";
+import styles from '../../../css/EditPostForm.module.css'
 
 const EditPostForm = () => {
     const { postId } = useParams();
@@ -81,19 +83,21 @@ const EditPostForm = () => {
         </option>
     ));
     return (
-        <section>
-            <h2>Edit Posts</h2>
-            <form>
-                <label htmlFor="postTitle">Post Title:</label>
+        <section className={styles.wrapper}>
+            <h2 className={styles.header}>Edit Post</h2>
+            <form className={styles.form}>
+                <label className={styles.label} htmlFor="postTitle">Post Title:</label>
                 <input
+                    className={styles.label}
                     type="text"
                     id="postTitle"
                     name="postTitle"
                     value={title}
                     onChange={onTitleChanged}
                 />
-                <label htmlFor="postAuthor">Author:</label>
+                <label className={styles.label} htmlFor="postAuthor">Author:</label>
                 <select
+                    className={styles.select}
                     id="postAuthor"
                     defaultValue={userId}
                     onChange={onAuthorChanged}
@@ -101,21 +105,23 @@ const EditPostForm = () => {
                     <option value=""></option>
                     {usersOptions}
                 </select>
-                <label htmlFor="postContent"></label>
+                <label className={styles.label} htmlFor="postContent"></label>
                 <textarea
+                    className={styles.textarea}
                     id="postContent"
                     name="postContent"
                     value={content}
                     onChange={onContentChanged}
                 />
                 <button
+                    className={styles.button}
                     type="button"
                     onClick={onSavePostHandler}
                     disabled={!canSave}
                 >
                     Save
                 </button>
-                <button type="button" onClick={onDeletePostHandler}>
+                <button className={`${styles.button} ${styles.delete}`} type="button" onClick={onDeletePostHandler}>
                     Delete
                 </button>
             </form>

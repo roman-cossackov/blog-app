@@ -1,20 +1,24 @@
 import { useSelector } from "react-redux/es/hooks/useSelector";
-import { selectAllUsers } from "./usersSlice";
 import { Link } from "react-router-dom";
+
+import { selectAllUsers } from "./usersSlice";
+import styles from "../../../css/UsersList.module.css";
 
 const UsersList = () => {
     const users = useSelector(selectAllUsers);
 
     const renderedUsers = users.map((user) => (
-        <li key={user.id}>
-            <Link to={`/users/${user.id}`}>{user.name}</Link>
+        <li className={styles.item} key={user.id}>
+            <Link className={styles.link} to={`/users/${user.id}`}>
+                {user.name}
+            </Link>
         </li>
     ));
 
     return (
-        <section>
-            <h2>Users</h2>
-            <ul>{renderedUsers}</ul>
+        <section className={styles.wrapper}>
+            <h2 className={styles.header}>Users</h2>
+            <ul className={styles.list}>{renderedUsers}</ul>
         </section>
     );
 };

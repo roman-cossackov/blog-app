@@ -43,11 +43,18 @@
     cursor: not-allowed;
 }
 .button:hover:enabled {
-    background-color: #007BFF;
+    background-color: #007bff;
 }
-.select {
+.delete {
+    margin-top: 10px;
+    background-color: #6b0311;
+}
+.delete:hover:enabled {
+    background-color: #b30018;
+}
+.select{
     appearance: none;
-    background-image: url('dropdown-arrow.png');
+    background-image: url("dropdown-arrow.png");
     background-position: 95% 50%;
     background-repeat: no-repeat;
 }

@@ -85,10 +85,6 @@ const commentsSlice = createSlice({
                     comment.date = sub(new Date(), {
                         minutes: min++,
                     }).toISOString();
-                    comment.reactions = {
-                        thumbsUp: 0,
-                        thumbsDown: 0,
-                    };
                     return comment;
                 });
                 commentsAdapter.upsertMany(state, loadedComments);
@@ -100,10 +96,6 @@ const commentsSlice = createSlice({
             .addCase(addComment.fulfilled, (state, action) => {
                 action.payload.id = state.ids.sort((a, b) => a - b)[state.ids.length - 1] + 1
                 action.payload.date = new Date().toISOString();
-                action.payload.reactions = {
-                    thumbsUp: 0,
-                    thumbsDown: 0,
-                };
                 commentsAdapter.addOne(state, action.payload);
             })
             .addCase(updateComment.fulfilled, (state, action) => {

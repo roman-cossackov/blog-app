@@ -1,11 +1,13 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useParams, useNavigate } from "react-router-dom";
+
 import {
     selectCommentById,
     updateComment,
     deleteComment,
 } from "./commentsSlice";
-import { useParams, useNavigate } from "react-router-dom";
+import styles from "../../../css/EditCommentForm.module.css";
 
 const EditCommentForm = () => {
     const { commentId } = useParams();
@@ -37,7 +39,7 @@ const EditCommentForm = () => {
     const onSaveCommentHandler = () => {
         if (canSave) {
             try {
-                setRequestStatus("pending")
+                setRequestStatus("pending");
                 dispatch(
                     updateComment({
                         postId: comment.postId,
@@ -75,32 +77,44 @@ const EditCommentForm = () => {
     };
 
     return (
-        <section>
-            <h2>Edit Comment</h2>
-            <form>
-                <label htmlFor="commentTitle">Comment Title:</label>
+        <section className={styles.wrapper}>
+            <h2 className={styles.header}>Edit Comment</h2>
+            <form className={styles.form}>
+                <label className={styles.label} htmlFor="commentTitle">
+                    Comment Title:
+                </label>
                 <input
+                    className={styles.input}
                     type="text"
                     id="commentTitle"
                     name="commentTitle"
                     value={title}
                     onChange={onTitleChanged}
                 />
-                <label htmlFor="commentContent"></label>
+                <label
+                    className={styles.label}
+                    htmlFor="commentContent"
+                ></label>
                 <textarea
+                    className={styles.textarea}
                     id="commentContent"
                     name="commentContent"
                     value={content}
                     onChange={onContentChanged}
                 />
                 <button
+                    className={styles.button}
                     type="button"
                     onClick={onSaveCommentHandler}
                     disabled={!canSave}
                 >
                     Save
                 </button>
-                <button type="button" onClick={onDeleteCommentHandler}>
+                <button
+                    className={`${styles.button} ${styles.delete}`}
+                    type="button"
+                    onClick={onDeleteCommentHandler}
+                >
                     Delete
                 </button>
             </form>

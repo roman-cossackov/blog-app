@@ -1,7 +1,5 @@
 import { useSelector } from "react-redux";
 
-import styles from '../../../css/PostsList.module.css'
-
 import { selectPostIds, getPostsStatus, getPostsError } from "./postsSlice";
 import PostsExcerpt from "./PostExcerpt";
 
@@ -21,7 +19,7 @@ const PostsList = () => {
         content = { postsError };
     }
 
-    return <section className={styles.content}>{content}</section>;
+    return <section>{content}</section>;
 };
 
 export default PostsList;
