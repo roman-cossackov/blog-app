@@ -63,3 +63,8 @@
         max-width: 100%;
     }
 }
+@media (max-width: 426px) {
+    .wrapper {
+        margin: 0;
+    }
+}

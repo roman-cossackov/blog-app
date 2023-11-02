@@ -32,3 +32,13 @@
     background-color: #007BFF;
 }
 
+@media (max-width: 768px) {
+    .wrapper {
+        max-width: 100%;
+    }
+}
+@media (max-width: 426px) {
+    .wrapper {
+        margin: 0;
+    }
+}
